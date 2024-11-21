@@ -1,39 +1,63 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja">
 <head>
     <meta charset="UTF-8">
-<title>Webページの練習</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数学の勉強</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        .content {
+            display: none;
+        }
+    </style>
 </head>
 <body>
-<h1>第一章 入門編</h1>
-<h2>1.1 ブラウザとは</h2>
-<p>ブラウザとは本をパラパラ・・・<br>
-    テキストの一部分を<b>太字</b>にします。
-    テキストの一部分を<span style="font-weight:bold;">太字</span>にします。
-    <span style="font-size:180%;">うん</span><br>
-    テキストの一部分を<span style="font-size:180%;">大きな文字</span>にします。
-    テキストの一部分を<span style="color:blue;">赤い文字</span>にします。
-    テキストの一部分を <span style="font-family:'ＭＳ 明朝'">明朝体</span> にします。
+    <h1>数学の勉強サイト</h1>
+
+    <!-- メニュー部分 -->
     <ul>
-        <li>りんご</li>
-        <li>も</li>
+        <li><a href="javascript:void(0)" onclick="showContent('law_of_large_numbers')">大数の法則</a></li>
+        <li><a href="javascript:void(0)" onclick="showContent('bayes_theorem')">ベイズの定理</a></li>
+        <li><a href="javascript:void(0)" onclick="showContent('central_limit_theorem')">中心極限定理</a></li>
     </ul>
     
-    <dl>
-        <dt>HTML</dt>
-        <dd>説明</dd>
-    </dl>
-    <table border=1>
-        <tr><td></td><td>■</td><td>▲</td></tr>
-        <tr><td>○</td><td>□</td><td>△</td></tr>
-        </table>
-        <a href="http://www.yahoo.co.jp/">Yahoo!</a>
-        <br><a href="test2.html">もいっこ</a>
-</p>
-
-
-
-<h2>1.2 HTMLとは</h2>
-<p>HTML とは HyperText Markup Language の略で・・・ある</p>
+    <!-- 各セクションのコンテンツ -->
+    <div id="law_of_large_numbers" class="content">
+        <h2>大数の法則</h2>
+        <p>大数の法則についての説明がここに入ります。</p>
+        <p>例えば、サイコロをたくさん転がすと、目の出方が均等に近づくという法則です。</p>
+    </div>
+    
+    <div id="bayes_theorem" class="content">
+        <h2>ベイズの定理</h2>
+        <p>ベイズの定理についての説明がここに入ります。</p>
+        <p>ベイズの定理は、確率論における重要な理論です。</p>
+    </div>
+    
+    <div id="central_limit_theorem" class="content">
+        <h2>中心極限定理</h2>
+        <p>中心極限定理についての説明がここに入ります。</p>
+        <p>多くの独立したランダム変数の和は、どんな分布でも正規分布に近づくという法則です。</p>
+    </div>
+    
+    <script>
+        // セクションを表示する関数
+        function showContent(contentId) {
+            // すべてのコンテンツを非表示にする
+            const allContent = document.querySelectorAll('.content');
+            allContent.forEach(content => {
+                content.style.display = 'none';
+            });
+            
+            // 指定されたコンテンツを表示
+            const selectedContent = document.getElementById(contentId);
+            selectedContent.style.display = 'block';
+        }
+    
+        // 最初に表示するコンテンツ
+        showContent('law_of_large_numbers');
+    </script>
+    
 </body>
 </html>
